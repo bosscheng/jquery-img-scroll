@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @charset "utf-8";
+        /* CSS Document */
+        body, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, li, form, fieldset, legend, button, input, textarea, th, td {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, button, input, select, textarea {
+            font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 100%;
+        }
+
+        em, i {
+            font-style: normal;
+        }
+
+        fieldset, img {
+            border: 0;
+        }
+
+        img {
+            display: block;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .clear {
+            clear: both;
+            display: block;
+            height: 0;
+            overflow: hidden;
+            font-size: 0;
+        }
+
+        button, input, select, textarea {
+            font-size: 100%;
+            outline: none
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .l {
+            float: left;
+        }
+
+        .r {
+            float: right;
+        }
+
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            zoom: 1;
+        }
+
+        /*水平方向图片滚动*/
+        .imgScrollWrap, .imgScrollWrap_1 {
+            position: relative;
+            width: 600px;
+            height: 120px;
+            border: 1px #999 solid;
+            overflow: hidden;
+        }
+
+        .imgScrollBtn01, .imgScrollBtn02, .imgScrollBtn01_1, .imgScrollBtn02_1 {
+            position: absolute;
+            display: block;
+            width: 22px;
+            height: 40px;
+            background: url(images/mainBG.png) no-repeat 0 0;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .imgScrollBtn01, .imgScrollBtn01_1 {
+            top: 40px;
+            left: 0;
+        }
+
+        .imgScrollBtn02, .imgScrollBtn02_1 {
+            top: 40px;
+            right: 0;
+            background-position: -22px 0;
+        }
+
+        .imgScrollBtn01:hover, .imgScrollBtn01_1:hover {
+            background-position: 0 -40px;
+        }
+
+        .imgScrollBtn02:hover, .imgScrollBtn02_1:hover {
+            background-position: -22px -40px;
+        }
+
+        .imgScrollList, .imgScrollList_1 {
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: 560px;
+            height: 120px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .imgScrollList ul, .imgScrollList_1 ul {
+            position: relative;
+            width: 9999px;
+            height: 120px;
+        }
+
+        .imgScrollList li, .imgScrollList_1 li {
+            float: left;
+            width: 560px;
+            height: 120px;
+            overflow: hidden;
+        }
+
+        .imgScrollList li a, .imgScrollList_1 li a {
+            float: left;
+            margin: 12px 6px;
+            width: 128px;
+            height: 96px;
+            overflow: hidden;
+        }
+
+        /*垂直方向图片滚动*/
+        .imgScrollWrap_v, .imgScrollWrap_v_1 {
+            position: relative;
+            width: 152px;
+            height: 472px;
+            border: 1px #999 solid;
+            overflow: hidden;
+        }
+
+        .imgScrollBtn01_v, .imgScrollBtn02_v, .imgScrollBtn01_v_1, .imgScrollBtn02_v_1 {
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 22px;
+            background: url(images/mainBG_v.png) no-repeat 0 0;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .imgScrollBtn01_v, .imgScrollBtn01_v_1 {
+            top: 0;
+            left: 56px;
+        }
+
+        .imgScrollBtn02_v, .imgScrollBtn02_v_1 {
+            bottom: 0;
+            left: 56px;
+            background-position: 0 -22px;
+        }
+
+        .imgScrollBtn01_v:hover, .imgScrollBtn01_v_1:hover {
+            background-position: -40px 0;
+        }
+
+        .imgScrollBtn02_v:hover, .imgScrollBtn02_v_1:hover {
+            background-position: -40px -22px;
+        }
+
+        .imgScrollList_v, .imgScrollList_v_1 {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 152px;
+            height: 432px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .imgScrollList_v ul.imgScrollList_v_1 ul {
+            position: relative;
+            height: 9999px;
+            width: 152px;
+        }
+
+        .imgScrollList_v li, .imgScrollList_v_1 li {
+            width: 152px;
+            height: 432px;
+            overflow: hidden;
+        }
+
+        .imgScrollList_v li a, .imgScrollList_v_1 li a {
+            display: block;
+            margin: 6px 12px 12px;
+            width: 128px;
+            height: 96px;
+            overflow: hidden;
+        }
+
+        .imgScrollWrap_2, .imgScrollWrap_3 {
+            position: relative;
+            width: 600px;
+            height: 120px;
+            border: 1px #999 solid;
+            overflow: hidden;
+        }
+
+        .imgScrollBtn01_2, .imgScrollBtn02_2, .imgScrollBtn01_3, .imgScrollBtn02_3 {
+            position: absolute;
+            display: block;
+            width: 22px;
+            height: 40px;
+            background: url(images/mainBG.png) no-repeat 0 0;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .imgScrollBtn01_2, .imgScrollBtn01_3 {
+            top: 40px;
+            left: 0;
+        }
+
+        .imgScrollBtn02_2, .imgScrollBtn02_3 {
+            top: 40px;
+            right: 0;
+            background-position: -22px 0;
+        }
+
+        .imgScrollBtn01_2:hover, .imgScrollBtn01_3:hover {
+            background-position: 0 -40px;
+        }
+
+        .imgScrollBtn02_2:hover, .imgScrollBtn02_2:hover {
+            background-position: -22px -40px;
+        }
+
+        .imgScrollList_2, .imgScrollList_3 {
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: 560px;
+            height: 120px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .imgScrollList_2 ul, .imgScrollList_3 ul {
+            position: relative;
+            width: 9999px;
+            height: 120px;
+        }
+
+        .imgScrollList_2 li, .imgScrollList_3 li {
+            float: left;
+            width: 140px;
+            height: 120px;
+            overflow: hidden;
+        }
+
+        .imgScrollList_2 li a, .imgScrollList_3 li a {
+            float: left;
+            margin: 12px 6px;
+            width: 128px;
+            height: 96px;
+            overflow: hidden;
+        }
+
+        .imgScrollWrap_v_2, .imgScrollWrap_v_3 {
+            position: relative;
+            width: 152px;
+            height: 472px;
+            border: 1px #999 solid;
+            overflow: hidden;
+        }
+
+        .imgScrollBtn01_v_2, .imgScrollBtn02_v_2, .imgScrollBtn01_v_3, .imgScrollBtn02_v_3 {
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 22px;
+            background: url(images/mainBG_v.png) no-repeat 0 0;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .imgScrollBtn01_v_2, .imgScrollBtn01_v_3 {
+            top: 0;
+            left: 56px;
+        }
+
+        .imgScrollBtn02_v_2, .imgScrollBtn02_v_3 {
+            bottom: 0;
+            left: 56px;
+            background-position: 0 -22px;
+        }
+
+        .imgScrollBtn01_v_2:hover, .imgScrollBtn01_v_3:hover {
+            background-position: -40px 0;
+        }
+
+        .imgScrollBtn02_v_2:hover, .imgScrollBtn02_v_3:hover {
+            background-position: -40px -22px;
+        }
+
+        .imgScrollList_v_2, .imgScrollList_v_3 {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 152px;
+            height: 432px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .imgScrollList_v_2 ul, .imgScrollList_v_3 ul {
+            position: relative;
+            height: 9999px;
+            width: 152px;
+        }
+
+        .imgScrollList_v_2 li, .imgScrollList_v_3 li {
+            width: 152px;
+            height: 108px;
+            overflow: hidden;
+        }
+
+        .imgScrollList_v_2 li a, .imgScrollList_v_3 li a {
+            display: block;
+            margin: 6px 12px;
+            width: 128px;
+            height: 96px;
+            overflow: hidden;
+        }
+
+        h1{
+            font-size: 32px;
+            text-align: center;
+        }
+
+        p{
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+    </style>
+</head>
+<body>
+<h1>imgScroll demo 页面</h1>
+<div>
+    <p>水平方向无缝滚动</p>
+    <!--图片滚动-->
+    <div class="imgScrollWrap">
+        <!--控制按钮-->
+        <a class="imgScrollBtn01" href="javascript:void(0);"></a>
+        <a class="imgScrollBtn02" href="javascript:void(0);"></a>
+        <!--滚动图片列表-->
+        <div class="imgScrollList">
+            <ul>
+                <li>
+                    <a href="#"><img src="images/01.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/02.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/03.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/04.jpg" width="128" height="96"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="images/05.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/06.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/07.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/08.jpg" width="128" height="96"/></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+    <p>水平方向回头滚动</p>
+    <div class="imgScrollWrap_1">
+        <!--控制按钮-->
+        <a class="imgScrollBtn01_1" href="javascript:void(0);"></a>
+        <a class="imgScrollBtn02_1" href="javascript:void(0);"></a>
+        <!--滚动图片列表-->
+        <div class="imgScrollList_1">
+            <ul>
+                <li>
+                    <a href="#"><img src="images/01.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/02.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/03.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/04.jpg" width="128" height="96"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="images/05.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/06.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/07.jpg" width="128" height="96"/></a>
+                    <a href="#"><img src="images/08.jpg" width="128" height="96"/></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+    <p>水平方向单页无缝滚动</p>
+    <div class="imgScrollWrap_2">
+        <!--控制按钮-->
+        <a class="imgScrollBtn01_2" href="javascript:void(0);"></a>
+        <a class="imgScrollBtn02_2" href="javascript:void(0);"></a>
+        <!--滚动图片列表-->
+        <div class="imgScrollList_2">
+            <ul style="margin-left: 0px;">
+
+
+                <li><a href="#"><img src="images/03.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/04.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/05.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/06.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/07.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/08.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/01.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/02.jpg" width="128" height="96"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+    <p>水平方向单页回头滚动</p>
+    <div class="imgScrollWrap_3">
+        <!--控制按钮-->
+        <a class="imgScrollBtn01_3" href="javascript:void(0);"></a>
+        <a class="imgScrollBtn02_3" href="javascript:void(0);"></a>
+        <!--滚动图片列表-->
+        <div class="imgScrollList_3">
+            <ul style="margin-left: -420px;">
+                <li><a href="#"><img src="images/01.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/02.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/03.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/04.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/05.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/06.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/07.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/08.jpg" width="128" height="96"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+    <p>垂直方向无缝滚动</p>
+    <div class="imgScrollWrap_v">
+        <!--控制按钮-->
+        <a class="imgScrollBtn01_v" href="javascript:void(0);"></a>
+        <a class="imgScrollBtn02_v" href="javascript:void(0);"></a>
+        <!--滚动图片列表-->
+        <div class="imgScrollList_v">
+            <ul>
+                <li>
+                    <a href="#"><img src="images/01.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="images/02.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="images/03.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="images/04.jpg" width="128" height="96"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="" src3="images/05.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="" src3="images/06.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="" src3="images/07.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="" src3="images/08.jpg" width="128" height="96"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+    <p>垂直方向来回滚动</p>
+    <div class="imgScrollWrap_v_1">
+        <!--控制按钮-->
+        <a class="imgScrollBtn01_v_1" href="javascript:void(0);"></a>
+        <a class="imgScrollBtn02_v_1" href="javascript:void(0);"></a>
+        <!--滚动图片列表-->
+        <div class="imgScrollList_v_1">
+            <ul>
+                <li>
+                    <a href="#"><img src="images/01.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="images/02.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="images/03.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="images/04.jpg" width="128" height="96"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="" src3="images/05.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="" src3="images/06.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="" src3="images/07.jpg" width="128" height="96"></a>
+                    <a href="#"><img src="" src3="images/08.jpg" width="128" height="96"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+    <p>垂直方向单页来回滚动</p>
+    <div class="imgScrollWrap_v_2">
+        <!--控制按钮-->
+        <a class="imgScrollBtn01_v_2" href="javascript:void(0);"></a>
+        <a class="imgScrollBtn02_v_2" href="javascript:void(0);"></a>
+        <!--滚动图片列表-->
+        <div class="imgScrollList_v_2">
+            <ul>
+                <li><a href="#"><img src="images/01.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/02.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/03.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/04.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/05.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/06.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/07.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/08.jpg" width="128" height="96"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+    <p>垂直方向单页无缝滚动</p>
+    <div class="imgScrollWrap_v_3">
+        <!--控制按钮-->
+        <a class="imgScrollBtn01_v_3" href="javascript:void(0);"></a>
+        <a class="imgScrollBtn02_v_3" href="javascript:void(0);"></a>
+        <!--滚动图片列表-->
+        <div class="imgScrollList_v_3">
+            <ul>
+                <li><a href="#"><img src="images/01.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/02.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/03.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="images/04.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/05.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/06.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/07.jpg" width="128" height="96"></a></li>
+                <li><a href="#"><img src="" src3="images/08.jpg" width="128" height="96"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://res.suning.cn/??public/v3/js/jquery.js"></script>
+<script src="../imgScroll.js"></script>
+<script>
+
+    //imgScroll({wrap: ".imgScrollWrap", btn01: ".imgScrollBtn01", btn02: ".imgScrollBtn02", step: 560});
+
+    $('.imgScrollWrap').imgScroll({
+        btn01: ".imgScrollBtn01", btn02: ".imgScrollBtn02", step: 560
+    });
+
+    /*imgScroll({
+     direction: "vertical",
+     wrap: ".imgScrollWrap_v",
+     btn01: ".imgScrollBtn01_v",
+     btn02: ".imgScrollBtn02_v",
+     step: 432
+     });*/
+
+    $('.imgScrollWrap_v').imgScroll({
+        direction: "vertical",
+        btn01: ".imgScrollBtn01_v",
+        btn02: ".imgScrollBtn02_v",
+        step: 432
+    });
+
+    /*imgScroll({
+     wrap: ".imgScrollWrap_1",
+     btn01: ".imgScrollBtn01_1",
+     btn02: ".imgScrollBtn02_1",
+     isSeamless: false,
+     step: 560
+     });*/
+
+    $('.imgScrollWrap_1').imgScroll({
+        btn01: ".imgScrollBtn01_1",
+        btn02: ".imgScrollBtn02_1",
+        isSeamless: false,
+        step: 560
+    });
+
+    /*imgScroll({
+     direction: "vertical",
+     wrap: ".imgScrollWrap_v_1",
+     btn01: ".imgScrollBtn01_v_1",
+     btn02: ".imgScrollBtn02_v_1",
+     isSeamless: false,
+     step: 432
+     });*/
+
+    $('.imgScrollWrap_v_1').imgScroll({
+        direction: "vertical",
+        btn01: ".imgScrollBtn01_v_1",
+        btn02: ".imgScrollBtn02_v_1",
+        isSeamless: false,
+        step: 432
+    });
+
+    /* imgScroll({
+     wrap: ".imgScrollWrap_2",
+     btn01: ".imgScrollBtn01_2",
+     btn02: ".imgScrollBtn02_2",
+     isScreen: false,
+     step: 140,
+     count: 4
+     });*/
+
+    $('.imgScrollWrap_2').imgScroll({
+        btn01: ".imgScrollBtn01_2",
+        btn02: ".imgScrollBtn02_2",
+        isScreen: false,
+        step: 140,
+        count: 4
+    });
+
+    /*imgScroll({
+     direction: "vertical",
+     wrap: ".imgScrollWrap_v_2",
+     btn01: ".imgScrollBtn01_v_2",
+     btn02: ".imgScrollBtn02_v_2",
+     isScreen: false,
+     step: 108,
+     count: 4
+     });*/
+
+    //
+    $('.imgScrollWrap_v_2').imgScroll({
+
+        direction: "vertical",
+        btn01: ".imgScrollBtn01_v_2",
+        btn02: ".imgScrollBtn02_v_2",
+        isScreen: false,
+        step: 108,
+        count: 4
+    });
+
+
+    /*imgScroll({
+     wrap: ".imgScrollWrap_3",
+     btn01: ".imgScrollBtn01_3",
+     btn02: ".imgScrollBtn02_3",
+     isSeamless: false,
+     isScreen: false,
+     step: 140,
+     count: 4
+     });*/
+
+    $('.imgScrollWrap_3').imgScroll({
+        btn01: ".imgScrollBtn01_3",
+        btn02: ".imgScrollBtn02_3",
+        isSeamless: false,
+        isScreen: false,
+        step: 140,
+        count: 4
+    });
+
+    // es6 amd cmd 版本
+    /*imgScroll({
+     direction: "vertical",
+     wrap: ".imgScrollWrap_v_3",
+     btn01: ".imgScrollBtn01_v_3",
+     btn02: ".imgScrollBtn02_v_3",
+     isSeamless: false,
+     isScreen: false,
+     step: 108,
+     count: 4
+     });*/
+
+    // jquery 插件版本
+    $('.imgScrollWrap_v_3').imgScroll({
+        direction: "vertical",
+        btn01: ".imgScrollBtn01_v_3",
+        btn02: ".imgScrollBtn02_v_3",
+        isSeamless: false,
+        isScreen: false,
+        step: 108,
+        count: 4
+    })
+
+</script>
+</body>
+</html>
